@@ -1,13 +1,20 @@
-﻿<Controls:MetroWindow x:Class="VCS_CADS.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="CADS: Version Control System" Height="550" Width="910"
-        ShowTitleBar="True"
-        TitleForeground="White"
-        BorderThickness="1"
+﻿<Controls:MetroWindow 
+    Name="Window"
+    x:Class="dbis_project.View.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    Title="CADS: Version Control System" Height="550" Width="910"
+    ShowTitleBar="True"
+    TitleForeground="White"
+    BorderThickness="1"
 >
-
+    
+    <Controls:MetroWindow.DataContext>
+        <Binding ElementName="Window" Path="VM"/>
+    </Controls:MetroWindow.DataContext>
+    
+    
     <Controls:MetroWindow.WindowCommands>
         <Controls:WindowCommands>
             <!--Show only when logged in!-->
@@ -26,8 +33,55 @@
             used only to compare grids
     -->
     <StackPanel Orientation="Vertical">
+
+        <DockPanel x:Name="grid_login"
+                  Visibility="Visible">
+            <StackPanel 
+                x:Name="panel_login"
+                Margin="5,0,5,0"
+                Visibility="Visible"
+                MaxWidth="400">
+                
+                <Label
+                    FontSize="18"
+                    FontWeight="Black"
+                    Margin="0,10,0,0">
+                    Log In
+                </Label>
+
+                <Label
+                    Margin="0,10,0,0">
+                    username:
+                </Label>
+
+                <TextBox x:Name="txtUsername"
+                          Text="{Binding Path=Username, Mode=Default, UpdateSourceTrigger=PropertyChanged}">
+                </TextBox>
+
+                <Label
+                        Margin="0,10,0,0">
+                    password:
+                </Label>
+
+                <PasswordBox 
+                    x:Name="txtPassword"
+                    />
+                
+                <Button
+                    x:Name="btn_login"
+                    HorizontalAlignment="Right"
+                    Width="80"
+                    Margin="0,20,5,0"
+                    
+                >
+                    log in
+                </Button>
+            </StackPanel>
+        </DockPanel>
+
         <Grid
-            x:Name="MainGrid">
+            x:Name="MainGrid"
+            Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition
                         MinWidth="200"
