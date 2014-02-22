@@ -8,6 +8,37 @@
         BorderThickness="1"
 >
 
-        
-    
+    <Controls:MetroWindow.WindowCommands>
+        <Controls:WindowCommands>
+            <!--Show only when logged in!-->
+            <Button>
+                log out
+            </Button>
+            <Button>
+                help
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.WindowCommands>
+
+    <!--
+        Temp content!
+        Remove StackPanel before UI release:
+            used only to compare grids
+    -->
+    <StackPanel Orientation="Vertical">
+        <Grid
+            x:Name="MainGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                        MinWidth="200"
+                        MaxWidth="200"/>
+                <ColumnDefinition
+                        MinWidth="300"/>
+                <ColumnDefinition
+                        MinWidth="0"
+                        MaxWidth="300"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+    </StackPanel>
+
 </Controls:MetroWindow>
