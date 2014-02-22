@@ -118,6 +118,30 @@ namespace dbis_project.View_Model
         
         #endregion
 
+        #region commands
+
+        public ICommand LogIn
+        {
+            get { return new DelegateCommand(logIn); }
+        }
+
+        #endregion
+
+        #region handlers
+
+        private void logIn()
+        {
+            if (((App)App.Current).GetPassword() == "qwerty")
+            {
+                this.Username = "Success!!!111";
+            }
+            else
+            {
+                this.Username = "Looooseeeeeer!!!11!!";
+            }
+        }
+
+        #endregion
 
         private string someValue;
         public string SomeValue

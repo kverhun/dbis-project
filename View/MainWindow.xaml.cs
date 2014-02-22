@@ -22,12 +22,11 @@ namespace dbis_project.View
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : MahApps.Metro.Controls.MetroWindow
+    public partial class MainWindow : MahApps.Metro.Controls.MetroWindow, IHasPassword
     {
         public MainWindow()
         {
-            VM = new ViewModel();
-
+            ((App)App.Current).ViewModel = new ViewModel();
         }
 
         public enum MainWindowState
@@ -56,10 +55,9 @@ namespace dbis_project.View
         private MainWindowState state;
 
 
-        public ObservableObject VM
+        public string GetPassword()
         {
-            get;
-            private set;
+            return this.txtPassword.Password;
         }
     }
 }

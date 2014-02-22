@@ -5,6 +5,12 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.ComponentModel;
+
+
+using dbis_project.View_Model;
+using dbis_project.View;
+
 
 namespace dbis_project
 {
@@ -13,5 +19,16 @@ namespace dbis_project
     /// </summary>
     public partial class App : Application
     {
+        public ObservableObject ViewModel
+        {
+            get;
+            set;
+        }
+
+        public string GetPassword()
+        {
+            return ((IHasPassword)MainWindow).GetPassword();
+        }
+
     }
 }
